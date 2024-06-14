@@ -30,3 +30,77 @@ GET http://localhost:8080/students
 
 ### 학번에 해당하는 학생 조회 테스트
 GET http://localhost:8080/students?number=20245192
+
+
+
+##############  jdbc ##################
+
+### 학생1 등록 테스트 -> jdbc
+POST http://localhost:8080/jdbc-students
+Content-Type: application/json
+
+{
+  "id": 1,
+  "studentNumber": "20105190",
+  "name": "황석규",
+  "email": "sghwang@sparta.com"
+}
+
+### 학생2 등록 테스트
+POST http://localhost:8080/jdbc-students
+Content-Type: application/json
+
+{
+  "id": 2,
+  "studentNumber": "20245192",
+  "name": "흥부",
+  "email": "hb@sparta.com"
+}
+
+### 학생 조회 테스트
+GET http://localhost:8080/jdbc-students/1
+
+
+### 학생 전체 조회 테스트
+GET http://localhost:8080/jdbc-students
+
+
+### 학번에 해당하는 학생 조회 테스트
+GET http://localhost:8080/jdbc-students?number=20245192
+
+
+
+##############  jdbc-template ##################
+
+### 학생1 등록 테스트 -> jdbc-template
+POST http://localhost:8080/jdbc-template-students
+Content-Type: application/json
+
+{
+  "id": 1,
+  "studentNumber": "20105190",
+  "name": "황석규",
+  "email": "sghwang@sparta.com"
+}
+
+### 학생2 등록 테스트
+POST http://localhost:8080/jdbc-template-students
+Content-Type: application/json
+
+{
+  "id": 2,
+  "studentNumber": "20245192",
+  "name": "흥부",
+  "email": "hb@sparta.com"
+}
+
+### 학생 조회 테스트
+GET http://localhost:8080/jdbc-template-students/1
+
+
+### 학생 전체 조회 테스트
+GET http://localhost:8080/jdbc-template-students
+
+
+### 학번에 해당하는 학생 조회 테스트
+GET http://localhost:8080/jdbc-template-students?number=20245192

@@ -27,6 +27,15 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+
+    // JDBC Template 위한 build.gradle 추가
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+    // mysql driver 추가
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
