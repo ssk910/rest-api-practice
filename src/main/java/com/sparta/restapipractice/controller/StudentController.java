@@ -7,7 +7,6 @@ import com.sparta.restapipractice.entity.Student;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,15 +46,19 @@ public class StudentController {
   }
 
   // 학생 전체 조회.
+  // (GET)  /students
   @GetMapping
-  public ResponseEntity<?> getStudents(
-      @RequestParam(value = "number", required = false) String studentNumber) {
-    if (StringUtils.hasLength(studentNumber)) {
-      Student student = this.studentMap.getByNumber(studentNumber);
-      return ResponseEntity.status(HttpStatus.OK).body(student);
-    }
-
+  public ResponseEntity<?> getStudents() {
     List<Student> studentList = this.studentMap.getAll();
     return ResponseEntity.status(HttpStatus.OK).body(studentList);
+  }
+
+  // 특정 학번에 해당하는 학생 조회
+  // (GET)  /students?number=20245190
+  @GetMapping(params = "number")
+  public ResponseEntity<?> getStudentByNumber(
+      @RequestParam(value = "number") String studentNumber) {
+    Student student = this.studentMap.getByNumber(studentNumber);
+    return ResponseEntity.status(HttpStatus.OK).body(student);
   }
 }
